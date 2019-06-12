@@ -19,7 +19,7 @@
         </where>
     </select>
     <insert id="upload" parameterType="String">
-        insert into tb_user (photograph) values(#{value})
+        insert into tb_user (img) values(#{value})
     </insert>
     <insert id="register" parameterType="user">
        insert into tb_user(username,password,email,tel) values(#{username},#{password},#{email},#{tel})

@@ -21,4 +21,7 @@ public interface UserMapper {
      * @param user
      */
     void register(User user);
+
+
+    void upload(String path);
 }

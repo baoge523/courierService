@@ -10,6 +10,15 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!--配置CommonsMultipartResolver 注入ioc容器中
+  id是固定写法multipartResolver
+  -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!--配置上传单个文件的最大值 -1表示无限值-->
+        <property name="maxUploadSize" value="-1"></property>
+    </bean>
+
     <!-- 开启注解驱动  同时会加载很多的配置类进去 -->
     <mvc:annotation-driven></mvc:annotation-driven>
 

@@ -18,4 +18,6 @@ public interface UserService {
      * @param user
      */
     void register(User user);
+
+    void upload(String path);
 }

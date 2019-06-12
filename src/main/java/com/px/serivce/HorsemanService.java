@@ -18,4 +18,6 @@ public interface HorsemanService {
      * @param horseman
      */
     void register(Horseman horseman);
+
+    void upload(String path);
 }

@@ -23,4 +23,9 @@ public class HorsemanServiceImpl implements HorsemanService {
     public void register(Horseman horseman) {
        mapper.register(horseman);
     }
+
+    @Override
+    public void upload(String path) {
+        mapper.upload(path);
+    }
 }

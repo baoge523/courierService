@@ -23,4 +23,9 @@ public class UserServiceImpl implements UserService {
     public void register(User user) {
        mapper.register(user);
     }
+
+    @Override
+    public void upload(String path) {
+        mapper.upload(path);
+    }
 }

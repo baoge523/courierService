@@ -14,7 +14,9 @@
     </if>
     </where>
 </select>
-
+    <insert id="upload" parameterType="String">
+        insert into tb_horseman (img) values(#{value})
+    </insert>
     <insert id="register" parameterType="horseman">
         insert into tb_horseman(username,password,email,tel,img) values(#{username},#{password},#{email},#{tel},#{img})
     </insert>
