@@ -1,15 +1,13 @@
 package com.px.controller;
 
-import com.px.dao.UserMapper;
+
 import com.px.entity.User;
+import com.px.serivce.UserService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 宝哥
@@ -17,25 +15,48 @@ import javax.servlet.http.HttpServletRequest;
  * TODO
  */
 @Controller
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
-    @RequestMapping(value="/login",method = RequestMethod.POST)
-    public String login(String username, String password, HttpServletRequest request){
-        User user = userMapper.login(username);
-        if (user == null) {
-            request.setAttribute("message","用户不存在");
-            return "hello";
+    /**
+     * 登录
+     * @param user
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("userlogin")
+    public String userlogin(User user){
+        System.out.println(user);
+        System.out.println("======");
+        user = userService.login(user);
+        System.out.println(user);
+        String code;
+        if(user!=null){
+            System.out.println(user);
+            code="1";
+        }else{
+            code="2";
         }
-        if(!user.getPassword().equals(password)){
-            request.setAttribute("message","密码错误");
-            return "hello";
-        }
-        request.setAttribute("message","登录成功");
-        return "hello";
+        return code;
     }
+
+    /**
+     * 注册
+     * @param user
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("userregister")
+    public String userregister(User user){
+        userService.register(user);
+        String code="1";
+        return code;
+    }
+
+
 
     /**
      * 注册

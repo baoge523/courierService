@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.px.dao.HorsemanMapper">
+<select id="login" parameterType="horseman" resultType="horseman">
+    SELECT id,username,password  FROM tb_horseman
+    <where>
+     <if test="email!=null">
+             email=#{email}
+     </if>
+    <if test="password!=null">
+        AND password=#{password}
+    </if>
+    </where>
+</select>
+
+    <insert id="register" parameterType="horseman">
+        insert into tb_horseman(username,password,email,tel,img) values(#{username},#{password},#{email},#{tel},#{img})
+    </insert>
+</mapper>

@@ -1,11 +1,9 @@
-package com.px.entity;
-
-/**
- * @author 宝哥
- * @date 2019/6/11
- * TODO
+package com.px.entity;/* *
+ * @ Author: LJH
+ * @ Date: 2019/6/12 8:58
  */
-public class User {
+
+public class Horseman {
     private int id;
     private String username;
     private String password;
@@ -15,7 +13,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Horseman{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

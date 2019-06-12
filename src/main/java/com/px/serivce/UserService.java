@@ -1,14 +1,11 @@
-package com.px.dao;
+package com.px.serivce;/* *
+ * @ Author: LJH
+ * @ Date: 2019/6/12 8:59
+ */
 
 import com.px.entity.User;
 
-/**
- * @author 宝哥
- * @date 2019/6/11
- * TODO
- */
-public interface UserMapper {
-
+public interface UserService {
     /**
      * 用户登录
      * @param user

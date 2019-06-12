@@ -15,5 +15,5 @@
 
     <!--扫描控制类-->
     <context:component-scan base-package="com.px.controller"></context:component-scan>
-
+    <mvc:default-servlet-handler/>
 </beans>
