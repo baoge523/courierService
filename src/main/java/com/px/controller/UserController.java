@@ -1,6 +1,7 @@
 package com.px.controller;
 
 
+import com.px.entity.Horseman;
 import com.px.entity.User;
 import com.px.serivce.UserService;
 import com.px.utils.JsonResult;
@@ -10,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -79,33 +83,45 @@ public class UserController {
         return new JsonResult();
     }
 
-
     /**
-     * 上传图片
+     * 上传头像
      * @param file
-     * @param map
      * @return
      */
+    @ResponseBody
     @RequestMapping("upload")
-    public String testUpload(@RequestParam("file") MultipartFile file, Map<String ,Object> map) throws IOException {
+    public Map<String,Object> registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
         String code;
-            InputStream inputStream = file.getInputStream();
-            String filename = file.getOriginalFilename();
-            OutputStream out=new FileOutputStream("img");//文件夹名
-            byte[] bs=new byte[1024];
-            int len=-1;
-            while ((len=inputStream.read())!=-1){
-                out.write(bs,0,len);
-            }
-            System.out.println("上传成功");
-            String path="..//img//"+filename;
-            System.out.println(path);
-            userService.upload(path);
-            map.put("path",path);
-            System.out.println("上传成功"+filename);
-            code="1";
-            out.close();
-            inputStream.close();
-        return code;
+        // 获取文件路径
+        String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
+        String fileName = file.getOriginalFilename();// 文件原名称
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+        // ͨ修改文件名
+        String newFileName = sdf.format(new Date()) + fileName.substring(fileName.lastIndexOf("."));// 获得文件后缀名
+        File myFile = new File(path, newFileName);
+        // 判断文件是否存在
+        if (!myFile.exists()) {
+            myFile.mkdirs();// 创建一个新的文文
+        }
+
+        try {
+            // 转存文件到指定的路径
+            file.transferTo(myFile);
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String path1=path+"\\"+newFileName;
+        // 将数据存入数据库
+        userService.upload(path1);
+        String pathimg="upload/"+newFileName;
+        code="1";
+        Map<String,Object> map=new HashMap<>();
+        map.put("pathimg",pathimg);
+        map.put("code",code);
+        return map;
     }
+
+
 }

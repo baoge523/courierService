@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-     <h1>${requestScope.message}</h1>
+     <%--<h1>${requestScope.message}</h1>--%>
+<h1>${requestScope.MSG}</h1>
 </body>
 </html>
