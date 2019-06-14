@@ -1,7 +1,7 @@
 package com.px.controller;
 
 
-import com.px.entity.Horseman;
+
 import com.px.entity.User;
 import com.px.serivce.UserService;
 import com.px.utils.JsonResult;
@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * @author 宝哥
@@ -40,7 +36,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("userlogin")
-    public String userlogin(User user){
+    public String userlogin(User user,HttpSession session){
         System.out.println(user);
         System.out.println("======");
         user = userService.login(user);
@@ -48,6 +44,7 @@ public class UserController {
         String code;
         if(user!=null){
             System.out.println(user);
+            session.setAttribute("username",user.getUsername());
             code="1";
         }else{
             code="2";
@@ -90,7 +87,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("upload")
-    public Map<String,Object> registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
+    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
         String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
@@ -117,11 +114,10 @@ public class UserController {
         userService.upload(path1);
         String pathimg="upload/"+newFileName;
         code="1";
-        Map<String,Object> map=new HashMap<>();
-        map.put("pathimg",pathimg);
-        map.put("code",code);
-        return map;
+        JsonResult jsonResult=new JsonResult();
+        jsonResult.addData("code",code);
+        jsonResult.addData("pathimg",pathimg);
+        return jsonResult;
     }
-
 
 }

@@ -9,6 +9,13 @@
         <property name="prefix" value="/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    <bean id="htmlviewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".html"></property>
+        <property name="order" value="0"></property>
+        <property name="contentType" value="text/html;charset=UTF-8" />
+    </bean>
+
 
     <!--配置CommonsMultipartResolver 注入ioc容器中
   id是固定写法multipartResolver

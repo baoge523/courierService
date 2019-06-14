@@ -5,6 +5,7 @@ package com.px.controller;/* *
 
 import com.px.entity.Horseman;
 import com.px.serivce.HorsemanService;
+import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("horse")
@@ -27,15 +26,21 @@ public class HorsemanController {
     @Autowired
     private HorsemanService horsemanService;
 
+    /**
+     * 登录
+     * @param horseman
+     * @return
+     */
    @ResponseBody
     @RequestMapping("horsemanlogin")
-    public String horsemanlogin(Horseman horseman){
+    public String horsemanlogin(Horseman horseman,HttpSession session){
         System.out.println(horseman);
         System.out.println("======");
         horseman = horsemanService.login(horseman);
         System.out.println(horseman);
         String code;
         if(horseman!=null){
+            session.setAttribute("horsemanuname",horseman.getUsername());
             System.out.println(horseman);
             code="1";
         }else{
@@ -59,7 +64,7 @@ public class HorsemanController {
      */
     @ResponseBody
     @RequestMapping("upload")
-    public Map<String,Object> registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
+    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
        String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
@@ -72,7 +77,6 @@ public class HorsemanController {
         if (!myFile.exists()) {
             myFile.mkdirs();// 创建一个新的文文
         }
-
         try {
             // 转存文件到指定的路径
             file.transferTo(myFile);
@@ -84,12 +88,16 @@ public class HorsemanController {
         String path1=path+"\\"+newFileName;
         // 将数据存入数据库
         horsemanService.upload(path1);
-        Map<String,Object> map=new HashMap<>();
+        JsonResult jsonResult=new JsonResult();
         String pathimg="upload/"+newFileName;
         code="1";
-        map.put("pathimg",pathimg);
-        map.put("code",code);
-        return map;
+        jsonResult.addData("code",code);
+        jsonResult.addData("pathimg",pathimg);
+        Map<String, Object> datas = jsonResult.getDatas();
+        for(String s:datas.keySet()){
+            Object o = datas.get(s);
+            System.out.println(s+o);
+        }
+        return jsonResult;
     }
-
 }

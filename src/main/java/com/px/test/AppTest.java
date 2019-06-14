@@ -8,6 +8,10 @@ import com.px.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class AppTest {
     public static void main(String[] args){
         ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring/applicationContext-dao.xml");
@@ -24,5 +28,7 @@ public class AppTest {
 //        User login = userMapper.login(u);
 
 //        System.out.println(login);
+        Date date=new Date();
+        System.out.println(date);
     }
 }

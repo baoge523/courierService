@@ -22,6 +22,16 @@ public interface UserMapper {
      */
     void register(User user);
 
-
+    /**
+     * 上传图片
+     * @param path
+     */
     void upload(String path);
+
+    /**
+     * 通过session中的用户名去查找用户信息
+     * @param user
+     * @return
+     */
+    User findByName(User user);
 }
