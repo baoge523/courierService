@@ -36,20 +36,21 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("userlogin")
-    public String userlogin(User user,HttpSession session){
+    public JsonResult userlogin(User user,HttpSession session){
         System.out.println(user);
         System.out.println("======");
         user = userService.login(user);
         System.out.println(user);
-        String code;
+        JsonResult jsonResult=new JsonResult();
         if(user!=null){
             System.out.println(user);
+            jsonResult.addData("code",1);
             session.setAttribute("username",user.getUsername());
-            code="1";
+            jsonResult.addData("username",user.getUsername());
         }else{
-            code="2";
+            jsonResult.addData("code",2);
         }
-        return code;
+        return jsonResult;
     }
 
     /**

@@ -4,6 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.px.dao.OrderMapper">
 <insert id="insertpublish" parameterType="order">
-    insert into tb_order(user_id,company_name,number,target_addr,user_name,status,publish_time,money) VALUES (#{userid},#{companyNname, #{number},#{targetAddr},#{userName},#{status},#{publishTime},#{money})
+    insert into tb_order
+    (user_id,company_name,number,target_addr,user_name,status,publish_time,money)
+        VALUES
+    (#{userId},#{companyName},#{number},#{targetAddr},#{username},#{status},#{publishTime},#{money})
 </insert>
 </mapper>

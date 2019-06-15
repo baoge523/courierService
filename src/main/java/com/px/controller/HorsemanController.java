@@ -33,20 +33,21 @@ public class HorsemanController {
      */
    @ResponseBody
     @RequestMapping("horsemanlogin")
-    public String horsemanlogin(Horseman horseman,HttpSession session){
+    public JsonResult horsemanlogin(Horseman horseman,HttpSession session){
         System.out.println(horseman);
         System.out.println("======");
         horseman = horsemanService.login(horseman);
         System.out.println(horseman);
-        String code;
+        JsonResult jsonResult=new JsonResult();
         if(horseman!=null){
             session.setAttribute("horsemanuname",horseman.getUsername());
             System.out.println(horseman);
-            code="1";
+         jsonResult.addData("code",1);
+         jsonResult.addData("horsemanuname",horseman.getUsername());
         }else{
-            code="2";
+            jsonResult.addData("code",2);
         }
-        return code;
+        return jsonResult;
     }
 
     @ResponseBody

@@ -28,7 +28,7 @@
                 type:"post",
                 data:{"email":email},
                 success:function (data) {
-                    if(data==1){
+                    if(data.datas.code==1){
                         alert("邮箱存在,请重新输入")
 						a=false;
                     }
@@ -43,7 +43,7 @@
                 type:"post",
                 data:{"username":username},
                 success:function (data) {
-                    if (data==1){
+                    if (data.datas.code==1){
                         alert("用户名存在，请重新输入")
 						 b=false;
                     }
@@ -62,7 +62,7 @@
                     type: "post",
                     data: {"email": email, "username": username, "password": password, "tel": tel},
                     success: function (data) {
-                        if (data == 1) {
+                        if (data.datas.code == 1) {
                             alert("注册成功")
                         }
                     }
@@ -83,7 +83,7 @@
                 type: "post",
                 data: {"email": email},
                 success: function (data) {
-                    if (data == 1) {
+                    if (data.datas.code == 1) {
                         alert("邮箱存在,请重新输入")
                         c = false;
                     }
@@ -100,7 +100,7 @@
                 type: "post",
                 data: {"username": username},
                 success: function (data) {
-                    if (data == 1) {
+                    if (data.datas.code == 1) {
                         alert("用户名存在，请重新输入")
                         d = false;
                     }
@@ -119,7 +119,7 @@
                     type: "post",
                     data: {"email": email, "username": username, "password": password, "tel": tel},
                     success: function (data) {
-                        if (data == 1) {
+                        if (data.datas.code == 1) {
                             alert("注册成功")
                         }
                     }

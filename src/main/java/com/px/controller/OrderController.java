@@ -23,16 +23,26 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private UserService userService;
+
+    /**
+     * user发布
+     * @param order
+     * @param session
+     * @return
+     */
     @ResponseBody
     @RequestMapping("publish")
     public JsonResult publish(Order order, HttpSession session){
+        System.out.println(order.toString());
         String  username = (String) session.getAttribute("username");
         User user=new User();
         user.setUsername(username);
         User byName = userService.findByName(user);
+        order.setUsername(username);
         order.setUserId(byName.getId());
         order.setPublishTime(new Date());
         order.setStatus(1);
+        System.out.println(order.toString());
         orderService.insertpublish(order);
         JsonResult jsonResult=new JsonResult();
         jsonResult.addData("username",username);
@@ -41,6 +51,9 @@ public class OrderController {
         jsonResult.addData("targetaddr",order.getTargetAddr());
         jsonResult.addData("money",order.getMoney());
         jsonResult.addData("date",order.getPublishTime());
+        for(String s:jsonResult.getDatas().keySet()){
+            System.out.println(s+"::::"+jsonResult.getDatas().get(s));
+        }
         return jsonResult;
     }
 }
