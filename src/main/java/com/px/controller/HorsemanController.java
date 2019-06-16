@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -25,7 +22,6 @@ import java.util.*;
 public class HorsemanController {
     @Autowired
     private HorsemanService horsemanService;
-
     /**
      * 登录
      * @param horseman
@@ -59,13 +55,13 @@ public class HorsemanController {
     }
 
     /**
-     * 上传头像
+     * 更换头像
      * @param file
      * @return
      */
     @ResponseBody
     @RequestMapping("upload")
-    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
+    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file,HttpSession session) {
        String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
@@ -88,12 +84,17 @@ public class HorsemanController {
         }
         String path1=path+"\\"+newFileName;
         // 将数据存入数据库
-        horsemanService.upload(path1);
+        String horsemanuname =(String) session.getAttribute("horsemanuname");
+        Horseman horseman=new Horseman();
+        horseman.setImg(path1);
+        horseman.setUsername(horsemanuname);
+        horsemanService.upload(horseman);
         JsonResult jsonResult=new JsonResult();
         String pathimg="upload/"+newFileName;
         code="1";
         jsonResult.addData("code",code);
         jsonResult.addData("pathimg",pathimg);
+
         Map<String, Object> datas = jsonResult.getDatas();
         for(String s:datas.keySet()){
             Object o = datas.get(s);

@@ -12,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
 
 @Controller
 @RequestMapping("order")
@@ -45,15 +47,30 @@ public class OrderController {
         System.out.println(order.toString());
         orderService.insertpublish(order);
         JsonResult jsonResult=new JsonResult();
-        jsonResult.addData("username",username);
-        jsonResult.addData("companyname",order.getCompanyName());
-        jsonResult.addData("number",order.getNumber());
-        jsonResult.addData("targetaddr",order.getTargetAddr());
-        jsonResult.addData("money",order.getMoney());
-        jsonResult.addData("date",order.getPublishTime());
-        for(String s:jsonResult.getDatas().keySet()){
-            System.out.println(s+"::::"+jsonResult.getDatas().get(s));
-        }
+        jsonResult.setStatusCode(200);
         return jsonResult;
+    }
+
+    /**
+     * 查询所有发布的信息
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("findAll")
+        public JsonResult findAll(){
+        List<Order> order = orderService.findAll();
+        //排除接单的，页面展示未接单
+        Iterator<Order> iterator = order.iterator();
+        while (iterator.hasNext()){
+            Order next = iterator.next();
+            if(next.getStatus()==2){
+                iterator.remove();
+            }
+        }
+        System.out.println(order);
+        JsonResult jsonResult=new JsonResult();
+        jsonResult.addData("order",order);
+       return jsonResult;
     }
 }

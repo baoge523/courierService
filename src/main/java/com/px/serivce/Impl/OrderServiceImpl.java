@@ -9,6 +9,9 @@ import com.px.serivce.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
+import java.util.List;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
@@ -16,5 +19,18 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void insertpublish(Order order) {
         mapper.insertpublish(order);
+    }
+
+    /**
+     * 查询所有的发布信息
+     * @return
+     */
+    @Override
+    public List<Order> findAll() {
+        return mapper.findAll();
+    }
+    @Override
+    public void update(int num) {
+        mapper.update(num);
     }
 }

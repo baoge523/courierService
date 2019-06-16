@@ -23,21 +23,14 @@
             type:"post",
             data:{"companyName":companyName,"number":number,"targetAddr":targetaddr,"money":money},
             success:function (data) {
-                if(data!=null){
-                    $("#companyname1").attr("value",data.datas.companyname);
-                    $("#number1").attr("value",data.datas.number);
-                    $("#targetaddr1").attr("value",data.datas.targetaddr);
-                    $("#money1").attr("value",data.datas.money);
+                if(data.statusCode==200){
+                    document.location.href="http://localhost:8080/index.jsp";
                     alert("发布成功")
                 }
             }
         })
     }
+
 </script>
-快递公司：<input type="text" id="companyname1" name="companyName" value=""/>
-取货码：<input type="text" id="number1" name="number" value=""/>
-送达地址：<input type="text" id="targetaddr1" name="targetAddr" value=""/>
-金额：<input type="text" id="money1" name="money" value=""/>
-<input type="button" value="接单" id="publish1"/>
 </body>
 </html>

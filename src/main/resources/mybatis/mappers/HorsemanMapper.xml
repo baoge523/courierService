@@ -14,10 +14,13 @@
     </if>
     </where>
 </select>
-    <insert id="upload" parameterType="String">
-        insert into tb_horseman (img) values(#{value})
-    </insert>
+    <update id="upload" parameterType="horseman">
+        UPDATE  tb_horseman set img=#{img}  where username=#{username}
+    </update>
     <insert id="register" parameterType="horseman">
         insert into tb_horseman(username,password,email,tel,img) values(#{username},#{password},#{email},#{tel},#{img})
     </insert>
+    <select id="findByName" parameterType="String" resultType="horseman">
+        select * from tb_horseman where username=#{value}
+    </select>
 </mapper>

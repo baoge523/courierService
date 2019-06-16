@@ -32,4 +32,14 @@
     <!--扫描控制类-->
     <context:component-scan base-package="com.px.controller"></context:component-scan>
     <mvc:default-servlet-handler/>
+
+    <!-- 自己写的拦截器 配置到springmvc中（；默认拦截全部请求 -->
+    <mvc:interceptors>
+        <!-- 配置具体的拦截路径 -->
+        <mvc:interceptor>
+            <!-- 指定拦截的路径,基于ant风格 -->
+            <mvc:mapping path="/detail/receiver"/>
+            <bean  class="com.px.interceptor.MyInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

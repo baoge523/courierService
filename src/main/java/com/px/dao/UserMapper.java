@@ -24,9 +24,9 @@ public interface UserMapper {
 
     /**
      * 上传图片
-     * @param path
+     * @param user
      */
-    void upload(String path);
+    void upload(User user);
 
     /**
      * 通过session中的用户名去查找用户信息

@@ -25,10 +25,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void upload(String path) {
-        mapper.upload(path);
+    public void upload(User user) {
+        mapper.upload(user);
     }
-
     @Override
     public User findByName(User user) {
         return mapper.findByName(user);

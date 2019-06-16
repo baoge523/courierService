@@ -18,6 +18,16 @@ public interface HorsemanService {
      * @param horseman
      */
     void register(Horseman horseman);
+    /**
+     * 通过session中域中的名字 去查找骑手的所有信息
+     * @param hrsemanname
+     * @return
+     */
+    Horseman findByName(String hrsemanname);
 
-    void upload(String path);
+    /**
+     * 更换头像
+     * @param horseman
+     */
+    void upload(Horseman horseman);
 }

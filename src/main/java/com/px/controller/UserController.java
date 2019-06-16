@@ -66,29 +66,14 @@ public class UserController {
         return code;
     }
 
-
-
     /**
-     * 注册
-     *
-     *  JsonResult 封装了我们需要传递给HTML页面的数据
-     *
-     * @return
-     */
-    @ResponseBody
-    public JsonResult regist(User user){
-
-        return new JsonResult();
-    }
-
-    /**
-     * 上传头像
+     * 更换头像
      * @param file
      * @return
      */
     @ResponseBody
     @RequestMapping("upload")
-    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file) {
+    public JsonResult registerUser(@RequestParam(value = "file", required = false) MultipartFile file ,HttpSession session) {
         String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
@@ -101,7 +86,6 @@ public class UserController {
         if (!myFile.exists()) {
             myFile.mkdirs();// 创建一个新的文文
         }
-
         try {
             // 转存文件到指定的路径
             file.transferTo(myFile);
@@ -112,7 +96,11 @@ public class UserController {
         }
         String path1=path+"\\"+newFileName;
         // 将数据存入数据库
-        userService.upload(path1);
+        String username = (String) session.getAttribute("username");
+        User user=new User();
+        user.setUsername(username);
+        user.setImg(path1);
+        userService.upload(user);
         String pathimg="upload/"+newFileName;
         code="1";
         JsonResult jsonResult=new JsonResult();

@@ -4,9 +4,10 @@ package com.px.entity;/* *
  */
 
 public class Detail {
+    //骑手接单产生的一张表
     private int id;
-    private int horsemanId;
-    private int orderId;
+    private int horsemanId;//骑手id
+    private int orderId;//订单id
 
     @Override
     public String toString() {

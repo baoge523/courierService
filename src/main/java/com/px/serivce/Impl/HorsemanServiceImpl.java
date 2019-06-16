@@ -25,7 +25,14 @@ public class HorsemanServiceImpl implements HorsemanService {
     }
 
     @Override
-    public void upload(String path) {
-        mapper.upload(path);
+    public Horseman findByName(String hrsemanname) {
+        return mapper.findByName(hrsemanname);
     }
+
+    @Override
+    public void upload(Horseman horseman) {
+        mapper.upload(horseman);
+    }
+
+
 }

@@ -7,12 +7,12 @@ import java.util.Date;
 
 public class Comment {
     private int id;
-    private int userId;
-    private int horsemanId;
-    private int orderId;
-    private String message;
-    private int satiInt ;
-    private Date commentTime;
+    private int userId;//用户id
+    private int horsemanId;//骑手id
+    private int orderId;//订单id
+    private String message;//评价信息
+    private int satiInt ;//满意度
+    private Date commentTime;//评论时间
 
     @Override
     public String toString() {

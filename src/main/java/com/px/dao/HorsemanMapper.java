@@ -19,5 +19,16 @@ public interface HorsemanMapper {
      */
     void register(Horseman horseman);
 
-    void upload(String path);
+    /**
+     * 通过session中域中的名字 去查找骑手的所有信息
+     * @param hrsemanname
+     * @return
+     */
+    Horseman findByName(String hrsemanname);
+
+    /**
+     * 更换头像
+     * @param horseman
+     */
+    void upload(Horseman horseman);
 }

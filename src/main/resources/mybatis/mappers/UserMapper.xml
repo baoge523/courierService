@@ -19,9 +19,9 @@
        </if>
         </where>
     </select>
-    <insert id="upload" parameterType="String">
-        insert into tb_user (img) values(#{value})
-    </insert>
+  <update id="upload" parameterType="user">
+      update tb_user SET img=${img} where username=#{username}
+  </update>
     <!--  注册   -->
     <insert id="register" parameterType="user">
        insert into tb_user(username,password,email,tel) values(#{username},#{password},#{email},#{tel})
@@ -30,4 +30,5 @@
     <select id="findByName" parameterType="user" resultType="user">
         select * from tb_user where username=#{username}
     </select>
+
 </mapper>
