@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="hidden" id="userid" name="id" value=""/>
+用户名：<input type="text" id="username" name="username" value=""/>
+密码：<input type="text" id="password" name="password" value=""/>
+邮箱：<input type="text" id="email" name="email" value=""/>
+电话：<input type="text" id="tel" name="tel"value=""/>
+<form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" id="file" />
+    <input type="button" value="点击上传" id="submit1" />
+</form>
+<img id="img" src="" style="width: 200px;height: 200px"/>
+<input type="button" value="提交" id="button"/>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(function(){
+        initData();
+    });
+    function initData(){
+        $.ajax({
+            type:"post",
+            dataType: "json",
+            url:"/user/findByName",
+            success:function(data){
+                if(data!=null){
+                    $("#userid").attr("value", data.datas.userinfo.id);
+                    $("#username").attr("value", data.datas.userinfo.username);
+                    $("#password").attr("value", data.datas.userinfo.password);
+                    $("#email").attr("value", data.datas.userinfo.email);
+                    $("#tel").attr("value", data.datas.userinfo.tel);
+                }
+            },
+        });
+    }
+    $("#button").click(rate);
+     function rate() {
+         var id=$("#userid").val();
+         var username=$("#username").val();
+         var password=$("#password").val();
+         var email=$("#email").val();
+         var tel=$("#tel").val();
+         $.ajax({
+              url:"/user/changeById",
+              type:"post",
+              data:{"id":id,"username":username,"password":password,"email":email,"tel":tel},
+             success:function (data) {
+                 if(data.statusCode==200){
+                     alert("更改成功")
+                 }
+             }
+         })
+     }
+    $("#submit1").click(click1);
+    function click1() {
+        var formData = new FormData($("#uploadForm")[0])//创建一个formdata
+        formData.append('file', $('#file')[0].files[0])//把file添加进去，name命名为file
+        $.ajax({
+            url: "/user/upload",
+            data: formData,
+            type: "post",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.datas.code == 1) {
+                    alert("上传成功")
+                }
+                console.log(data.datas.pathimg);
+                $("#img").attr("src", data.datas.pathimg)
+
+            }
+        })
+    }
+</script>
+</body>
+</html>

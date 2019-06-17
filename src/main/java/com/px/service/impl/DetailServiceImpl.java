@@ -1,11 +1,11 @@
-package com.px.serivce.Impl;/* *
+package com.px.service.impl;/* *
  * @ Author: LJH
  * @ Date: 2019/6/16 13:40
  */
 
 import com.px.dao.DetailMapper;
 import com.px.entity.Detail;
-import com.px.serivce.DetailService;
+import com.px.service.DetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

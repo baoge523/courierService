@@ -3,7 +3,7 @@ package com.px.controller;
 
 
 import com.px.entity.User;
-import com.px.serivce.UserService;
+import com.px.service.UserService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -94,14 +94,15 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String path1=path+"\\"+newFileName;
         // 将数据存入数据库
         String username = (String) session.getAttribute("username");
-        User user=new User();
-        user.setUsername(username);
-        user.setImg(path1);
-        userService.upload(user);
         String pathimg="upload/"+newFileName;
+        User user=new User();
+        System.out.println(username);
+        user.setUsername(username);
+        System.out.println(username.toString());
+        user.setImg(pathimg);
+        userService.upload(user);
         code="1";
         JsonResult jsonResult=new JsonResult();
         jsonResult.addData("code",code);
@@ -109,4 +110,35 @@ public class UserController {
         return jsonResult;
     }
 
+    /**
+     * user信息回显到页面上
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("findByName")
+    public JsonResult findByName(HttpSession session){
+        String username = (String) session.getAttribute("username");
+        User user=new User();
+        user.setUsername(username);
+        User userinfo = userService.login(user);
+        JsonResult jsonResult=new JsonResult();
+        jsonResult.addData("userinfo",userinfo);
+        return jsonResult;
+    }
+
+    /**
+     *更新user信息
+     * @param user
+     * @return
+     */
+    @RequestMapping("changeById")
+    @ResponseBody
+    public JsonResult changeById(User user){
+        JsonResult jsonResult=new JsonResult();
+        userService.changeByName(user);
+        System.out.println(user.toString());
+        jsonResult.setStatusCode(200);
+        return jsonResult;
+    }
 }

@@ -1,4 +1,4 @@
-package com.px.serivce;/* *
+package com.px.service;/* *
  * @ Author: LJH
  * @ Date: 2019/6/14 20:26
  */
@@ -20,4 +20,10 @@ public interface OrderService {
      * @param num
      */
     void update(int num);
+    /**
+     * user查询账单
+     * @param username
+     * @return
+     */
+    List<Order> check(String username);
 }

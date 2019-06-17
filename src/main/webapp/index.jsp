@@ -13,6 +13,8 @@
 <a id="welcome">欢迎</a>
 <script src="js/jquery-3.3.1.js"></script>
 <link rel="icon" href="data:;base64,=">
+<a href="publish.html">发布</a>
+<a href="user.html" id="check">账单</a>
 <script>
 $("#submit1").click(click1);
 function click1() {
@@ -32,6 +34,7 @@ function click1() {
             }
             console.log(data.datas.pathimg);
             $("#img").attr("src", data.datas.pathimg)
+
         }
     })
 }
@@ -73,7 +76,6 @@ function button(orderId) {
 }
 
 </script>
-<a href="/detail/receiver"></a>
 <table id="order">
     <tr>
         <td>快递信息</td>

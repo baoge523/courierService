@@ -18,4 +18,8 @@
         UPDATE tb_order SET status=2 WHERE id=#{orderId}
     </update>
 
+    <select id="check" parameterType="String" resultType="order">
+        select * from tb_order where userName=#{VALUE}
+    </select>
+
 </mapper>

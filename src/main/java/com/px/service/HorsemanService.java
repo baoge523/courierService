@@ -1,9 +1,11 @@
-package com.px.serivce;/* *
+package com.px.service;/* *
  * @ Author: LJH
  * @ Date: 2019/6/12 9:00
  */
 
 import com.px.entity.Horseman;
+
+import java.util.List;
 
 public interface HorsemanService {
     /**
@@ -30,4 +32,9 @@ public interface HorsemanService {
      * @param horseman
      */
     void upload(Horseman horseman);
+    /**
+     * 骑手信息显示到页面上
+     * @return
+     */
+    List<Horseman> echo();
 }

@@ -19,8 +19,7 @@ public class MyInterceptor implements HandlerInterceptor {
             //判断骑手是否登录
             Horseman horsemanuname = (Horseman) httpServletRequest.getSession().getAttribute("horsemanuname");
             if(horsemanuname==null){
-                System.out.println("请登录");
-                httpServletResponse.sendRedirect("login.html");
+                System.out.println("骑手请登录");
                 return false;
             }
         }

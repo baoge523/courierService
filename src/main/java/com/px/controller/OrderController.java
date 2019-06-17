@@ -3,10 +3,12 @@ package com.px.controller;/* *
  * @ Date: 2019/6/14 20:01
  */
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.px.entity.Order;
 import com.px.entity.User;
-import com.px.serivce.OrderService;
-import com.px.serivce.UserService;
+import com.px.service.OrderService;
+import com.px.service.UserService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,4 +75,48 @@ public class OrderController {
         jsonResult.addData("order",order);
        return jsonResult;
     }
+
+    /**
+     * user查询账单
+     * @param session
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping("checkuser")
+    public JsonResult checkuser(HttpSession session){
+        JsonResult jsonResult=new JsonResult();
+        String  username = (String) session.getAttribute("username");
+        List<Order> list = orderService.check(username);
+        PageHelper.startPage(1 , 4);//分页
+        //得到分页的结果对象
+        PageInfo<Order> pageInfo=new PageInfo<>(list);
+        //得到分页中的person条目对象
+        List<Order> pageList = pageInfo.getList();
+        System.out.println(pageList);
+        for(Order l:pageList){
+            System.out.println(l.getCompanyName()+l.getNumber()+l.getTargetAddr()+l.getMoney());
+        }
+        return jsonResult;
+    }
+//
+//
+//    @ResponseBody
+//    @RequestMapping("checkuser")
+//    public JsonResult checkhorse(HttpSession session){
+//        JsonResult jsonResult=new JsonResult();
+//        String  username = (String) session.getAttribute("username");
+//        List<Order> list = orderService.check(username);
+//        PageHelper.startPage(1 , 4);//分页
+//        //得到分页的结果对象
+//        PageInfo<Order> pageInfo=new PageInfo<>(list);
+//        //得到分页中的person条目对象
+//        List<Order> pageList = pageInfo.getList();
+//        System.out.println(pageList);
+//        for(Order l:pageList){
+//            System.out.println(l.getCompanyName()+l.getNumber()+l.getTargetAddr()+l.getMoney());
+//        }
+//        return jsonResult;
+//    }
+
 }

@@ -1,13 +1,14 @@
-package com.px.serivce.Impl;/* *
+package com.px.service.impl;/* *
  * @ Author: LJH
  * @ Date: 2019/6/12 9:01
  */
 
 import com.px.dao.HorsemanMapper;
 import com.px.entity.Horseman;
-import com.px.serivce.HorsemanService;
+import com.px.service.HorsemanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class HorsemanServiceImpl implements HorsemanService {
@@ -32,6 +33,11 @@ public class HorsemanServiceImpl implements HorsemanService {
     @Override
     public void upload(Horseman horseman) {
         mapper.upload(horseman);
+    }
+
+    @Override
+    public List<Horseman> echo() {
+        return mapper.echo();
     }
 
 

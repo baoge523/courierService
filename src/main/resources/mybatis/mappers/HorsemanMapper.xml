@@ -23,4 +23,7 @@
     <select id="findByName" parameterType="String" resultType="horseman">
         select * from tb_horseman where username=#{value}
     </select>
+    <select id="echo" resultType="horseman">
+       select * from tb_horseman
+    </select>
 </mapper>

@@ -4,7 +4,7 @@ package com.px.controller;/* *
  */
 
 import com.px.entity.Horseman;
-import com.px.serivce.HorsemanService;
+import com.px.service.HorsemanService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,6 +65,7 @@ public class HorsemanController {
        String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
+        System.out.println(path);
         String fileName = file.getOriginalFilename();// 文件原名称
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         // 修改文件名
@@ -82,15 +83,14 @@ public class HorsemanController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String path1=path+"\\"+newFileName;
         // 将数据存入数据库
         String horsemanuname =(String) session.getAttribute("horsemanuname");
         Horseman horseman=new Horseman();
-        horseman.setImg(path1);
         horseman.setUsername(horsemanuname);
-        horsemanService.upload(horseman);
         JsonResult jsonResult=new JsonResult();
         String pathimg="upload/"+newFileName;
+        horseman.setImg(pathimg);
+        horsemanService.upload(horseman);
         code="1";
         jsonResult.addData("code",code);
         jsonResult.addData("pathimg",pathimg);
@@ -100,6 +100,19 @@ public class HorsemanController {
             Object o = datas.get(s);
             System.out.println(s+o);
         }
+        return jsonResult;
+    }
+
+    /**
+     * 将骑手的信息全部回显到页面上
+     * @return
+     */
+    @RequestMapping("echo")
+    @ResponseBody
+    public JsonResult echo(){
+        JsonResult jsonResult=new JsonResult();
+        List<Horseman> echo = horsemanService.echo();
+        jsonResult.addData("echo",echo);
         return jsonResult;
     }
 }

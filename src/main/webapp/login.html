@@ -36,7 +36,7 @@
                 data:{"email":email,"password":password},
                 success:function (data) {
                     if (data.datas.code==1){
-                        document.location.href="http://localhost:8080/publish.html";
+                        document.location.href="http://localhost:8080/changeUserInfo.html";
                         alert("登录成功")
                     }else if(data.datas.code==2){
                         alert("密码错误")

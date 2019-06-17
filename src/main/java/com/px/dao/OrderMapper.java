@@ -25,4 +25,11 @@ public interface OrderMapper {
     * @param num
     */
    void update(int num);
+
+   /**
+    * user查询账单
+    * @param username
+    * @return
+    */
+   List<Order> check(String username);
 }
