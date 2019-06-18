@@ -8,7 +8,9 @@ import com.px.entity.User;
 import com.px.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired

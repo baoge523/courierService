@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--
+      spring中的事务管理是依赖于  spring中的AOP 技术
+    -->
+
+
+    <!--
+      事务管理类
+    -->
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 指定数据源   这里报错是因为在这个页面没有找到该数据源的引用，但是其他xml文件中是有的  -->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!-- 切面增强器 本质就是一个拦截器
+
+       事务增强器
+
+       transaction-manager ： 指定 事务管理器
+    -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <!-- 对什么样的方法 做事务 -->
+        <tx:attributes>
+            <!-- 修改的  -->
+            <tx:method name="add*" read-only="false"/>
+            <tx:method name="save*" read-only="false"/>
+            <tx:method name="update*" read-only="false"/>
+            <tx:method name="delete*" read-only="false"/>
+            <tx:method name="remove*" read-only="false"/>
+
+            <!-- 查询的 -->
+            <tx:method name="find*" read-only="true" isolation="DEFAULT"></tx:method>
+            <tx:method name="query*" read-only="true" isolation="DEFAULT"></tx:method>
+            <tx:method name="select*" read-only="true" isolation="DEFAULT"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- aop 的配置
+     proxy-target-class == true  默认使用java 的proxy 代理
+     proxy-target-class == false 使用cglib动态代理
+     -->
+     <aop:config proxy-target-class="true">
+         <!-- 配置切入点  -->
+         <aop:pointcut id="txPointCut" expression="execution(* com.px.service.impl..*(..))"></aop:pointcut>
+
+         <!--
+           通知器
+
+           指定事务增强器  和   切入点
+         -->
+         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"></aop:advisor>
+     </aop:config>
+
+    <!--
+    ==============================================================================================
+    -->
+
+    <!--
+      开启 aop 的 切面代理
+    -->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>-->
+
+
+
+    <!--
+        配置  切面  增强
+    -->
+    <aop:config>
+        <!--
+          指定 切入表达式
+        -->
+        <!--<aop:pointcut id="" expression="execution(* ..*(..))"></aop:pointcut>-->
+        <!--
+          指定哪一个类是切面类    ==================作用和 @Aspectj 注解一样
+            并指定该类中的哪些方法是怎么样的通知
+          -->
+        <!--<aop:aspect>-->
+            <!--<aop:before method=""></aop:before>-->
+            <!--<aop:after method=""></aop:after>-->
+            <!--<aop:after-returning method=""></aop:after-returning>-->
+            <!--<aop:after-throwing method=""></aop:after-throwing>-->
+        <!--</aop:aspect>-->
+    </aop:config>
+
+
+    <!-- xml  和  注解  开发   解决 事务   -->
+    <!--
+      开启注解版本的事务注解    和 @Transcation注解搭配使用
+
+        proxy-target-class="true"  使用java中的proxy 代理
+        proxy-target-class="false"  使用cglib代理
+        transaction-manager="txManager"  指定事务管理器
+    -->
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"></tx:annotation-driven>
+
+
+
+</beans>

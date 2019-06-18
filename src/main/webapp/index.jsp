@@ -19,6 +19,7 @@
 $("#submit1").click(click1);
 function click1() {
     var formData = new FormData($("#uploadForm")[0])//创建一个formdata
+
     formData.append('file', $('#file')[0].files[0])//把file添加进去，name命名为file
     $.ajax({
         url: "/horse/upload",

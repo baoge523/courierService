@@ -3,6 +3,7 @@ package com.px.entity;/* *
  * @ Date: 2019/6/14 18:01
  */
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order {
@@ -88,8 +89,9 @@ public class Order {
         this.status = status;
     }
 
-    public Date getPublishTime() {
-        return publishTime;
+    public String getPublishTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(this.publishTime);
     }
 
     public void setPublishTime(Date publishTime) {
