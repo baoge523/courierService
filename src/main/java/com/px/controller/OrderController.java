@@ -5,8 +5,8 @@ package com.px.controller;/* *
 
 import com.px.entity.Order;
 import com.px.entity.User;
-import com.px.serivce.OrderService;
-import com.px.serivce.UserService;
+import com.px.service.OrderService;
+import com.px.service.UserService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

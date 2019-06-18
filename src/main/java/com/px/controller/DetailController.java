@@ -5,9 +5,9 @@ package com.px.controller;/* *
 
 import com.px.entity.Detail;
 import com.px.entity.Horseman;
-import com.px.serivce.DetailService;
-import com.px.serivce.HorsemanService;
-import com.px.serivce.OrderService;
+import com.px.service.DetailService;
+import com.px.service.HorsemanService;
+import com.px.service.OrderService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

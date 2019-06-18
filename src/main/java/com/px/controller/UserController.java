@@ -3,7 +3,7 @@ package com.px.controller;
 
 
 import com.px.entity.User;
-import com.px.serivce.UserService;
+import com.px.service.UserService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,10 +60,9 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("userregister")
-    public String userregister(User user){
+    public JsonResult userregister(User user){
         userService.register(user);
-        String code="1";
-        return code;
+        return new JsonResult(200,"");
     }
 
     /**

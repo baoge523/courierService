@@ -9,4 +9,12 @@
     <typeAliases>
         <package name="com.px.entity"></package>
     </typeAliases>
+    <!--
+      如果使用pagehelper 需要在这里配置  当然也可在spring中配置
+    -->
+    <!--<plugins>-->
+        <!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+            <!--<property name="dialect" value="mysql"></property>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
 </configuration>

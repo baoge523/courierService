@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	</head>
+	<body style="color: gray;">
+
+	<!-- 栅格系统-->
+	<div class="container">
+		<div class="row" style="margin-top: 100px">
+			<h2 style="text-align: center">注册界面</h2>
+			<div class="col-md-8 col-md-offset-2">
+				<form class="form-horizontal">
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label"></label>
+						<div class="col-sm-10">
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="horseman" value="0" checked> 骑手
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="inlineRadioOptions" id="user" value="1"> 用户
+							</label>
+						</div>
+					</div>
+
+
+
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">邮箱:</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="email" placeholder="邮箱">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="username" class="col-sm-2 control-label">用户名:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="username" placeholder="用户名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label">密码:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="password" placeholder="密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="tel" class="col-sm-2 control-label">电话:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" id="tel" placeholder="电话">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-default" id="submit">注册</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script>
+    // 0 是骑手  1 是用户
+	var userType = 0;  // 默认是骑手
+	var reqeustURL="/horse/horsemanlogin"; // 默认是骑手的校验
+	var registerURL = "/horse/horseregister"; // 默认是其的注册
+
+	// 用户的注册
+    $("#user").click(function () {
+		userType = 1;
+		reqeustURL="/user/userlogin";
+        registerURL = "/user/userregister";
+    });
+    // 骑手的注册
+    $("#horseman").click(function () {
+        // 修改状态码
+		userType = 0;
+		// 修改请求地址
+        reqeustURL ="/horse/horsemanlogin";
+        registerURL= "/horse/horseregister";
+    });
+
+    //  检查邮箱
+    function checkEmail() {
+        var email=$("#email").val();
+        // 邮箱校验
+        var regex = /[0-9a-zA-Z]{1,20}@[0-9a-zA-Z]{2,5}\.[a-z]{2,5}/;
+        var flag = regex.test(email);
+        if(flag){
+            $.ajax({
+                url:reqeustURL,
+                type:"post",
+                data:{"email":email},
+                success:function (data) {
+                    if(data.datas.code==1){
+                        alert("邮箱存在,请重新输入");
+                        return false;
+                    }
+                }
+            });
+            return true;
+		}else{
+			alert("邮箱格式不正确!");
+            return false;
+		}
+    }
+    // 检查用户名是否正确
+    function checkUsername() {
+        var username=$("#username").val();
+        var regex = /[0-9a-zA-Z\u2E80-\u9FFF]{2,10}/;
+        var flag = regex.test(username);
+        if(flag){
+            $.ajax({
+                url:reqeustURL,
+                type:"post",
+                data:{"username":username},
+                success:function (data) {
+                    if (data.datas.code==1){
+                        alert("用户名存在，请重新输入")
+                        return false;
+                    }
+                }
+            });
+            return true;
+		} else {
+            alert("用户名格式不正确");
+			return false;
+        }
+
+    }
+
+    // 检查密码
+    function checkPassword() {
+        var password = $("#password").val();
+        var regex = /\w{3,8}/;
+        var flag = regex.test(password);
+        if (flag) {
+            return true;
+		}else {
+            alert("密码格式不正确");
+            return false;
+        }
+    }
+
+    // 检查电话号码
+	function checkPhone() {
+        var tel = $("#tel").val();
+        var regex = /^1[3578][0-9]{9}/;
+        var flag = regex.test(tel);
+        if (flag) {
+            return true;
+		}else{
+            alert("电话格式不正确");
+            return false;
+		}
+    }
+
+    // 提交注册
+    function registrSubmit() {
+		// 保证校验都成功
+        if (checkEmail() &&  checkUsername() && checkPassword() && checkPhone() ) {
+
+            var email = $("#email").val();
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var tel = $("#tel").val();
+            console.log(reqeustURL);
+            $.ajax({
+                url: registerURL,
+                type: "post",
+                data: {"email": email, "username": username, "password": password, "tel": tel},
+                success: function (data) {
+                    console.log(data);
+                    if (data.statusCode == 200) {
+                        alert("注册成功");
+                        // 跳转页面
+                        location.href = "http://localhost:8080/index.html";
+                    }else{
+                        alert("注册失败");
+					}
+                }
+            });
+        }
+
+
+    }
+    // 各字段的离焦事件
+    $("#email").blur(checkEmail);
+    $("#username").blur(checkUsername);
+    $("#password").blur(checkPassword);
+    $("#tel").blur(checkPhone);
+
+	// 提交事件
+    $("#submit").click(registrSubmit);
+
+
+</script>
+<a href="/horse/horsemanlogin"></a>
+	</body>
+</html>

@@ -4,7 +4,7 @@ package com.px.controller;/* *
  */
 
 import com.px.entity.Horseman;
-import com.px.serivce.HorsemanService;
+import com.px.service.HorsemanService;
 import com.px.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,10 +48,9 @@ public class HorsemanController {
 
     @ResponseBody
     @RequestMapping("horseregister")
-    public String horseregister(Horseman horseman){
+    public JsonResult horseregister(Horseman horseman){
         horsemanService.register(horseman);
-        String code="1";
-        return code;
+        return new JsonResult(200,"");
     }
 
     /**
@@ -65,6 +64,23 @@ public class HorsemanController {
        String code;
         // 获取文件路径
         String path = "E:\\IdeaProjects\\courierService\\src\\main\\webapp\\upload";
+
+        // 获取上下文路径
+        String contextPath = session.getServletContext().getContextPath();
+        System.out.println(contextPath);
+
+
+        // ------
+        String realPath = session.getServletContext().getRealPath("\\webapp\\upload\\");
+        System.out.println(realPath);
+
+
+        // 判断 文件是否为空
+        if(file.isEmpty()){
+            return new JsonResult(100,"请上传文件");
+        }
+
+
         String fileName = file.getOriginalFilename();// 文件原名称
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
         // 修改文件名
