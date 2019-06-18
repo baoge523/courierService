@@ -20,7 +20,7 @@
         </where>
     </select>
   <update id="upload" parameterType="user">
-      update tb_user SET img=${img} where username=#{username}
+      update tb_user SET img=#{img} where username=#{username}
   </update>
     <!--  注册   -->
     <insert id="register" parameterType="user">
@@ -30,5 +30,7 @@
     <select id="findByName" parameterType="user" resultType="user">
         select * from tb_user where username=#{username}
     </select>
-
+     <update id="changeByName" parameterType="user">
+        update tb_user SET username=#{username},password=#{password},email=#{email},tel=#{tel} where id=#{id}
+     </update>
 </mapper>

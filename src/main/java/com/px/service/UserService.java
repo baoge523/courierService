@@ -25,10 +25,17 @@ public interface UserService {
      */
     void upload(User user);
 
+
     /**
-     * 通过session中的用户名去查找用户信息
+     * 通过session域中
      * @param user
      * @return
      */
     User findByName(User user);
+    /**
+     * user用户修改信息
+     * @param user
+     * @return
+     */
+    void changeByName(User user);
 }

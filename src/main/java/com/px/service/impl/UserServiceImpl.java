@@ -30,8 +30,15 @@ public class UserServiceImpl implements UserService {
     public void upload(User user) {
         mapper.upload(user);
     }
+
     @Override
     public User findByName(User user) {
         return mapper.findByName(user);
     }
+
+    @Override
+    public void changeByName(User user) {
+        mapper.changeByName(user);
+    }
+
 }

@@ -20,4 +20,16 @@ public interface OrderService {
      * @param num
      */
     void update(int num);
+    /**
+     * user查询账单
+     * @param username
+     * @return
+     */
+    List<Order> check(String username);
+    /**
+     * 通过id去查找账单的状态
+     * @param orderid
+     * @return
+     */
+    Order findById(int orderid);
 }

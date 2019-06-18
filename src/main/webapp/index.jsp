@@ -13,6 +13,8 @@
 <a id="welcome">欢迎</a>
 <script src="js/jquery-3.3.1.js"></script>
 <link rel="icon" href="data:;base64,=">
+<a href="publish.html">发布</a>
+<a href="user.html" id="check">账单</a>
 <script>
 $("#submit1").click(click1);
 function click1() {
@@ -33,6 +35,7 @@ function click1() {
             }
             console.log(data.datas.pathimg);
             $("#img").attr("src", data.datas.pathimg)
+
         }
     })
 }
@@ -68,13 +71,14 @@ function button(orderId) {
         success:function (code) {
             if(code.statusCode==200){
                 alert("接单成功")
+            }else if(code.statusCode==100){
+                alert("已接单，请勿在此接单")
             }
         }
     })
 }
 
 </script>
-<a href="/detail/receiver"></a>
 <table id="order">
     <tr>
         <td>快递信息</td>

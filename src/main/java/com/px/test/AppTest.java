@@ -3,6 +3,9 @@ package com.px.test;/* *
  * @ Date: 2019/6/12 11:29
  */
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.px.dao.OrderMapper;
 import com.px.dao.UserMapper;
 import com.px.entity.Order;
@@ -31,21 +34,24 @@ public class AppTest {
 ////        System.out.println(login);
 //        Date date=new Date();
 //        System.out.println(date);
-        OrderMapper orderMapper = ac.getBean("orderMapper", OrderMapper.class);
-        List<Order> order = orderMapper.findAll();
-        Iterator<Order> iterator = order.iterator();
-        while (iterator.hasNext()){
-            Order next = iterator.next();
-            if(next.getStatus()==2){
-                iterator.remove();
-            }
-        }
-        System.out.println(order);
-        JsonResult jsonResult=new JsonResult();
-            jsonResult.addData("order",order);
+//        OrderMapper orderMapper = ac.getBean("orderMapper", OrderMapper.class);
+//        PageHelper.startPage(1 , 4);
+//        List<Order> personList = orderMapper.check("56565");
+//        //得到分页的结果对象
+//        PageInfo<Order> pageInfo=new PageInfo<>(personList);
+//        //得到分页中的person条目对象
+//        List<Order> pageList = pageInfo.getList();
+//        System.out.println(pageList);
+//        for(Order l:pageList){
+//            System.out.println(l.getCompanyName()+l.getNumber()+l.getTargetAddr()+l.getMoney());
+//        }
+        UserMapper userMapper = ac.getBean("userMapper", UserMapper.class);
+        User user=new User();
+        user.setUsername("张三");
+//        User byName = userMapper.findByName(user);
+//        System.out.println(byName.toString());
+        User byName = userMapper.findByName(user);
+        System.out.println(byName);
 
-        for(String s:jsonResult.getDatas().keySet()){
-            System.out.println(s+"::::"+jsonResult.getDatas().get(s));
-        }
     }
 }

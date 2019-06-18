@@ -8,6 +8,7 @@ import com.px.entity.Horseman;
 import com.px.service.HorsemanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class HorsemanServiceImpl implements HorsemanService {
@@ -32,6 +33,11 @@ public class HorsemanServiceImpl implements HorsemanService {
     @Override
     public void upload(Horseman horseman) {
         mapper.upload(horseman);
+    }
+
+    @Override
+    public List<Horseman> echo() {
+        return mapper.echo();
     }
 
 

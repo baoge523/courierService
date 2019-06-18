@@ -5,13 +5,36 @@
     <title>Title</title>
 </head>
 <body>
-<a id="name">欢迎</a>
 <script src="js/jquery-3.3.1.js"></script>
 <script>
-    var item = sessionStorage.getItem("username");
-    alert(item)
-    $("#name").attr("src", item)
+    $(function(){
+        initData();
+    });
 
+    function initData(){
+        $.ajax({
+            type:"post",
+            dataType: "json",
+            url:"/horse/echo",
+            success:function(data){
+                if(data!=null){
+                    for(var i=0;i<data.datas.echo.length;i++){
+                        var htmls;
+                        var htmlss;
+                        htmlss="<img src='"+data.datas.echo[i].img+"' style=\"width: 500px;height: 300px\"/>"
+                        htmls="<tr>+<td>"+"姓名 :"+data.datas.echo[i].username+"</td><td>"+"邮箱 :"+data.datas.echo[i].email+"</td>+<td>"+"联系电话:"+data.datas.echo[i].tel+"</td>+</tr>";
+                        $("#order").append(htmlss,htmls);
+                }
+            }
+                console.log(data)
+            },
+        });
+    }
 </script>
+<table id="order">
+    <tr>
+        <td>骑手信息</td>
+    </tr>
+</table>
 </body>
 </html>

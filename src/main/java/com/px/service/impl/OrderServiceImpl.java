@@ -20,10 +20,6 @@ public class OrderServiceImpl implements OrderService {
         mapper.insertpublish(order);
     }
 
-    /**
-     * 查询所有的发布信息
-     * @return
-     */
     @Override
     public List<Order> findAll() {
         return mapper.findAll();
@@ -32,4 +28,16 @@ public class OrderServiceImpl implements OrderService {
     public void update(int num) {
         mapper.update(num);
     }
+
+    @Override
+    public List<Order> check(String username) {
+        return mapper.check(username);
+    }
+
+    @Override
+    public Order findById(int orderid) {
+        return mapper.findById(orderid);
+    }
+
+
 }

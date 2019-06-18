@@ -5,6 +5,8 @@ package com.px.service;/* *
 
 import com.px.entity.Horseman;
 
+import java.util.List;
+
 public interface HorsemanService {
     /**
      * 用户登录
@@ -30,4 +32,9 @@ public interface HorsemanService {
      * @param horseman
      */
     void upload(Horseman horseman);
+    /**
+     * 骑手信息显示到页面上
+     * @return
+     */
+    List<Horseman> echo();
 }
