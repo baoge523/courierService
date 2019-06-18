@@ -48,10 +48,9 @@ public class HorsemanController {
 
     @ResponseBody
     @RequestMapping("horseregister")
-    public String horseregister(Horseman horseman){
+    public JsonResult horseregister(Horseman horseman){
         horsemanService.register(horseman);
-        String code="1";
-        return code;
+        return new JsonResult(200,"");
     }
 
     /**

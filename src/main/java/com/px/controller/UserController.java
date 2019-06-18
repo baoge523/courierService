@@ -60,10 +60,9 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping("userregister")
-    public String userregister(User user){
+    public JsonResult userregister(User user){
         userService.register(user);
-        String code="1";
-        return code;
+        return new JsonResult(200,"");
     }
 
     /**
