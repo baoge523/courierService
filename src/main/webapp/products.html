@@ -31,6 +31,12 @@
 	<link rel="stylesheet" href="css/innerpage.css">
 	<!-- // PARTICULAR PAGES CSS FILES -->
 	<link rel="stylesheet" href="css/responsive.css">
+	<style>
+		.s{
+			width: 300px;
+			height: 200px;
+		}
+	</style>
 </head>
 <body class="products-view">
 			
@@ -79,7 +85,7 @@
 								<a href="register.html">注册</a>
 							</li>
 							<li>
-								<a href="#">登录</a>
+								<a href="login.html">登录</a>
 							</li>
 						</ul>
 						
@@ -97,541 +103,288 @@
 			<div class="container">
 				<div class="relative">
 					<ul class="bc push-up unstyled clearfix">
-						<!--<li><a href="index-2.html">Home</a></li>
-						<li class="active">Products</li>-->
 					</ul>
 				</div>
 			</div>
 		</div>
 		<!-- // BREADCRUMB -->
-		
-		<!-- SITE MAIN CONTENT -->
-		<main id="main-content" role="main">
-			<div class="container">
-				<div class="row">
-					
-					<div class="m-t-b clearfix">
-						<!-- SIDEBAR -->
-						<aside class="col-xs-12 col-sm-4 col-md-3">
-							<section class="sidebar push-up">
-							
-								<!-- CATEGORIES -->
-								<section class="side-section bg-white">
-									<header class="side-section-header">
-										<h3 class="side-section-title">骑手信息展示</h3>
-									</header>
-									
-									<div class="side-section-content">
-										<ul id="category-list" class="vmenu unstyled">
-												<!--   优秀骑手的显示        -->
-											<li>
-												<input type="checkbox" id="check-women" class="prettyCheckable" data-label="优秀骑手" data-labelPosition="right" value="women" />
-												<ul>
-													<li><input type="checkbox" id="check-women-accessories" class="prettyCheckable" data-label="Accessories" data-labelPosition="right" value="women-accessories" /></li>
-													<li><input type="checkbox" id="check-women-swimwear" class="prettyCheckable" data-label="Swimwear" data-labelPosition="right" value="women-swimwear" /></li>
-													<li><input type="checkbox" id="check-women-basics" class="prettyCheckable" data-label="Basics" data-labelPosition="right" value="women-basics" /></li>
-													<li><input type="checkbox" id="check-women-dresses" class="prettyCheckable" data-label="Dresses" data-labelPosition="right" value="women-dresses" /></li>
-													<li><input type="checkbox" id="check-women-jeans" class="prettyCheckable" data-label="Jeans" data-labelPosition="right" value="women-jeans" /></li>
-													<li><input type="checkbox" id="check-women-skirt" class="prettyCheckable" data-label="Skirts" data-labelPosition="right" value="women-skirt" /></li>
-													<li><input type="checkbox" id="check-women-legging" class="prettyCheckable" data-label="Leggings" data-labelPosition="right" value="women-legging" /></li>
-												</ul>
-											</li>
-											<!--   一般骑手的显示        -->
-											<li>
-												<input type="checkbox" id="check-men" class="prettyCheckable" data-label="一般骑手" data-labelPosition="right" value="men" />
-												<ul>
-													<li><input type="checkbox" id="check-men-accessories" class="prettyCheckable" data-label="Accessories" data-labelPosition="right" value="men-accessories" /></li>
-													<li><input type="checkbox" id="check-men-jacket" class="prettyCheckable" data-label="Jackets" data-labelPosition="right" value="men-jacket" /></li>
-													<li><input type="checkbox" id="check-men-jumper" class="prettyCheckable" data-label="Jumpers" data-labelPosition="right" value="men-jumper" /></li>
-													<li><input type="checkbox" id="check-men-jean" class="prettyCheckable" data-label="Jeans" data-labelPosition="right" value="men-jean" /></li>
-													<li><input type="checkbox" id="check-men-shoe" class="prettyCheckable" data-label="Shoes" data-labelPosition="right" value="men-shoe" /></li>
-													<li><input type="checkbox" id="check-men-tshirt" class="prettyCheckable" data-label="T-Shirt & Polo Shirts" data-labelPosition="right" value="men-tshirt" /></li>
-													<li><input type="checkbox" id="check-men-blazers" class="prettyCheckable" data-label="Blazers" data-labelPosition="right" value="men-blazers" /></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
-									
-									
-									<footer class="side-section-footer text-center hide">
-										<button type="button" id="btn-filter-cat" class="btn btn-primary btn-round uppercase">Clear Filters</button>
-									</footer>
-								</section>
-								<!-- // CATEGORIES -->
-								
-								<!-- BRANDS -->
-								<section class="side-section bg-white">
-									<header class="side-section-header">
-										<h3 class="side-section-title">本月优秀骑手</h3>
-									</header>
-									<div class="side-section-content">
-										<ul id="brands-list" class="vmenu unstyled">
-											<li>
-												<input type="checkbox" id="check-brand1" class="prettyCheckable" data-label="Because" data-labelPosition="right" value="brand1" />
-											</li>
-											<li>
-												<input type="checkbox" id="check-brand2" class="prettyCheckable" data-label="Lorem" data-labelPosition="right" value="brand2" />
-											</li>
-											<li>
-												<input type="checkbox" id="check-brand3" class="prettyCheckable" data-label="Ipsum" data-labelPosition="right" value="brand3" />
-											</li>
-											<li>
-												<input type="checkbox" id="check-brand4" class="prettyCheckable" data-label="Is too" data-labelPosition="right" value="brand4" />
-											</li>
-											<li>
-												<input type="checkbox" id="check-brand5" class="prettyCheckable" data-label="Mainstream" data-labelPosition="right" value="brand5" />
-											</li>
-										</ul>
-									</div>
-									<footer class="side-section-footer text-center hide">
-										<button type="button" id="btn-filter-brand" class="btn btn-primary btn-round uppercase">Clear Filters</button>
-									</footer>
-								</section>
-								<!-- // BRANDS -->
-								
-								
-						</aside>
-						
-						
-						<!-- // SIDEBAR -->
-						<section class="col-xs-12 col-sm-8 col-md-9">
-							<section class="products-wrapper">
-								<!-- PRODUCT LAYOUT -->
-								<div class="products-layout grid m-t-b add-cart" data-product=".product" data-thumbnail=".entry-media .thumb" data-title=".entry-title > a" data-url=".entry-title > a" data-price=".entry-price > .price">
-									
-									
-									<!--  骑手展示页面   -->
-									
-									<div class="product" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1" data-price="250" data-colors="red|blue|black|white" data-size="S|M|L">
-										<div class="entry-media">
-											<img data-src="images/women/skirt/430041-0014_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<div class="circle ribbon ribbon-sale">Sale</div>
-													</li>
-													<li>
-														<a href="images/women/skirt/430041-0014_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="4.5" step="0.5" id="backing1" />
-													<div class="rateit" data-rateit-backingfld="#backing1" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<s class="entry-discount">$ 350.00</s>
-												<strong class="accent-color price">$ 250.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="2" data-category="women|women-accessories|women-basics|women-legging|new" data-brand="brand2" data-price="450" data-colors="red|green|black|white|silver" data-size="XS|S|M">
-										<div class="entry-media">
-											<img data-src="images/women/accessories/582120-0029_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/women/accessories/582120-0029_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="4" step="0.5" id="backing2" />
-													<div class="rateit" data-rateit-backingfld="#backing2" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 350.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="3" data-category="men|men-jacket|men-accessories|men-jumper|new" data-brand="brand2" data-price="450" data-colors="purple|brown|black|white|patternie" data-size="S|M|L|XL">
-										<div class="entry-media">
-											<img data-src="images/men/accessories/255615-0014_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<div class="circle ribbon ribbon-new">New</div>
-													</li>
-													<li>
-														<a href="images/men/accessories/255615-0014_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="3.5" step="0.5" id="backing3" />
-													<div class="rateit" data-rateit-backingfld="#backing3" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 450.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="4" data-category="men|men-jacket|men-accessories|men-jeans|men-jumper" data-brand="brand3" data-price="350" data-colors="purple|brown|black|white|red" data-size="S|M|L|XL|XXL">
-										<div class="entry-media">
-											<img data-src="images/men/blazer/677326-0014_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/men/blazer/677326-0014_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="5" step="0.5" id="backing4" />
-													<div class="rateit" data-rateit-backingfld="#backing4" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 350.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="5" data-category="men|men-shoe|men-accessories|men-jean|new" data-brand="brand4" data-price="250" data-colors="brown|silver|black|green|red" data-size="L|XL|XXL">
-										<div class="entry-media">
-											<img data-src="images/men/shoes/000312-2259_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<div class="circle ribbon ribbon-sale">Sale</div>
-													</li>
-													<li>
-														<a href="images/men/shoes/000312-2259_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="4.5" step="0.5" id="backing5" />
-													<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<s class="entry-discount">$ 350.00</s>
-												<strong class="accent-color price">$ 250.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="6" data-category="women|women-legging|women-dresses|women-jeans|women-skirt" data-brand="brand5" data-price="350" data-colors="white|silver|green|red|blue" data-size="XS|S">
-										<div class="entry-media">
-											<img data-src="images/women/jeans/220008-0054_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/women/jeans/220008-0054_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="4" step="0.5" id="backing6" />
-													<div class="rateit" data-rateit-backingfld="#backing6" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 350.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="7" data-category="women|women-swimwear|best|new" data-brand="brand5" data-price="150" data-colors="white|black|patternie" data-size="XS|S">
-										<div class="entry-media">
-											<img data-src="images/women/swimwear/116796-0001_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<div class="circle ribbon ribbon-new">New</div>
-													</li>
-													<li>
-														<a href="images/women/swimwear/116796-0001_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="3.5" step="0.5" id="backing7" />
-													<div class="rateit" data-rateit-backingfld="#backing7" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 150.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="8" data-category="women|women-dresses|best" data-brand="brand4" data-price="350" data-colors="white|black" data-size="XS|S|L">
-										<div class="entry-media">
-											<img data-src="images/women/dress/278638-0083_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/women/dress/278638-0083_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="5" step="0.5" id="backing8" />
-													<div class="rateit" data-rateit-backingfld="#backing8" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 350.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-							
-									<div class="product" data-product-id="9" data-category="men|men-accessories|men-jean|best|new" data-brand="brand5" data-price="850" data-colors="white|black" data-size="L|XL|XXL">
-										<div class="entry-media">
-											<img data-src="images/men/accessories/000095-0014_2_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/men/accessories/000095-0014_2.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="5" step="0.5" id="backing9" />
-													<div class="rateit" data-rateit-backingfld="#backing9" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 850.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-							
-									<div class="product" data-product-id="10" data-category="women|women-basics|new" data-brand="brand1" data-price="550" data-colors="white|black|patternie" data-size="XS|S">
-										<div class="entry-media">
-											<img data-src="images/women/basic/848051-0014_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/women/basic/848051-0014_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="3.5" step="0.5" id="backing10" />
-													<div class="rateit" data-rateit-backingfld="#backing10" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 550.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
-									<div class="product" data-product-id="11" data-category="women|women-basics|makeup" data-brand="brand3" data-price="700" data-colors="white|black|red|green|brown" data-size="XS|S">
-										<div class="entry-media">
-											<img data-src="images/women/basic/848099-0067_1_t.jpg" alt="" class="lazyLoad thumb" />
-											<div class="hover">
-												<a href="product.html" class="entry-url"></a>
-												<ul class="icons unstyled">
-													<li>
-														<a href="images/women/basic/848099-0067_1.jpg" class="circle" data-toggle="lightbox"><i class="iconfont-search"></i></a>
-													</li>
-													<li>
-														<a href="#" class="circle add-to-cart"><i class="iconfont-shopping-cart"></i></a>
-													</li>
-												</ul>
-												<div class="rate-bar">
-													<input type="range" value="2.5" step="0.5" id="backing11" />
-													<div class="rateit" data-rateit-backingfld="#backing11" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
-												</div>
-											</div>
-										</div>
-										<div class="entry-main">
-											<h5 class="entry-title">
-												<a href="product.html">Inceptos orci hac libero</a>
-											</h5>
-											<div class="entry-description visible-list">
-												<p>Sed ornare cras donec litora integer curabitur orci, at nullam aliquam libero nam himenaeos, amet massa amet ut ipsum viverra mauris rhoncus neque aenean rhoncus gravida orci facilisis quis dui consectetur.</p>
-											</div>
-											<div class="entry-price">
-												<strong class="price">$ 700.00</strong>
-												<a href="#" class="btn btn-round btn-default add-to-cart visible-list">Add to Cart</a>
-											</div>
-											<div class="entry-links clearfix">
-												<a href="#" class="pull-left m-r">+ Add to Wishlist</a>
-												<a href="#" class="pull-right">+ Add to Compare</a>
-											</div>
-										</div>
-									</div>
-									
+
+	<!-- 骑手展示页面  -->
+	<main id="main-content" role="main">
+		<div class="container">
+			<div class="row">
+
+				<div class="m-t-b clearfix">
+					<!-- SIDEBAR -->
+					<aside class="col-xs-12 col-sm-4 col-md-3">
+						<section class="sidebar push-up">
+
+							<!-- CATEGORIES -->
+							<section class="side-section bg-white">
+								<header class="side-section-header">
+									<h3 class="side-section-title">骑手展示页面</h3>
+								</header>
+								<div class="side-section-content">
+									<ul id="category-list" class="vmenu unstyled">
+										<!-- 优秀骑手  -->
+										<li>
+											<input type="checkbox" id="check-women" class="prettyCheckable" data-label="优秀骑手" data-labelPosition="right" value="women" />
+											<ul>
+												<li><input type="checkbox" id="check-women-accessories" class="prettyCheckable" data-label="李公明" data-labelPosition="right" value="women-accessories" /></li>
+												<li><input type="checkbox" id="check-women-swimwear" class="prettyCheckable" data-label="王五" data-labelPosition="right" value="women-swimwear" /></li>
+												<li><input type="checkbox" id="check-women-basics" class="prettyCheckable" data-label="李四" data-labelPosition="right" value="women-basics" /></li>
+												<li><input type="checkbox" id="check-women-dresses" class="prettyCheckable" data-label="曹寇" data-labelPosition="right" value="women-dresses" /></li>
+												<li><input type="checkbox" id="check-women-jeans" class="prettyCheckable" data-label="郭灿金" data-labelPosition="right" value="women-jeans" /></li>
+												<li><input type="checkbox" id="check-women-skirt" class="prettyCheckable" data-label="程蝉" data-labelPosition="right" value="women-skirt" /></li>
+												<li><input type="checkbox" id="check-women-legging" class="prettyCheckable" data-label="姜汉忠" data-labelPosition="right" value="women-legging" /></li>
+											</ul>
+										</li>
+									</ul>
 								</div>
-								<!-- // PRODUCT LAYOUT -->
 							</section>
+							<!-- // CATEGORIES -->
+
+							<!-- BRANDS -->
+							<section class="side-section bg-white">
+								<header class="side-section-header">
+									<h3 class="side-section-title">本月最佳</h3>
+								</header>
+								<div class="side-section-content">
+									<ul id="brands-list" class="vmenu unstyled">
+										<li>
+											<input type="checkbox" id="check-brand1" class="prettyCheckable" data-label="曹寇" data-labelPosition="right" value="brand1" />
+										</li>
+										<li>
+											<input type="checkbox" id="check-brand2" class="prettyCheckable" data-label="姜汉忠" data-labelPosition="right" value="brand2" />
+										</li>
+										<li>
+											<input type="checkbox" id="check-brand3" class="prettyCheckable" data-label="程蝉" data-labelPosition="right" value="brand3" />
+										</li>
+									</ul>
+								</div>
+								<footer class="side-section-footer text-center hide">
+									<button type="button" id="btn-filter-brand" class="btn btn-primary btn-round uppercase">Clear Filters</button>
+								</footer>
+							</section>
+							<!-- // BRANDS -->
+							</section>
+					</aside>
+					<!-- // SIDEBAR -->
+					<section class="col-xs-12 col-sm-8 col-md-9">
+						<!--  灰白色导航条位置处-->
+						<section class="products-wrapper">
+							<header class="products-header">
+								<div class="row">
+									<div class="space30 visible-xs"></div>
+								</div>
+							</header>
+							<!-- 骑手的个人信息展示 -->
+							<div id="showHorseMans">
+								<!-- 骑手的个人信息展示  data-product=".product" data-thumbnail=".entry-media .thumb" data-title=".entry-title > a" data-url=".entry-title > a" data-price=".entry-price > .price"-->
+								<div class="grid m-t-b add-cart products-layout" data-product=".product" data-thumbnail=".entry-media .thumb" data-title=".entry-title > a" data-url=".entry-title > a" data-price=".entry-price > .price" >
+
+									<div class="product" id="0" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img0" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing0" />
+												<div class="rateit" data-rateit-backingfld="#backing0" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name0">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email0">
+												</strong>
+											</div>
+											<div class="entry-links clearfix" id="phone0">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="1" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img1"  alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing1" />
+												<div class="rateit" data-rateit-backingfld="#backing1" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name1">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email1"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone1">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="2" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img2" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing2" />
+												<div class="rateit" data-rateit-backingfld="#backing2" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name2">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email2"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone2">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="3" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img3" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing3" />
+												<div class="rateit" data-rateit-backingfld="#backing3" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name3">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email3"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone3">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="4" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img4" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing4" />
+												<div class="rateit" data-rateit-backingfld="#backing4" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name4">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email4"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone4">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="5" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img5" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing5" />
+												<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name5">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email5"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone5">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="6" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img6" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing6" />
+												<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name6">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email6"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone6">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="7" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img7" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing7" />
+												<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name7">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email7"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone7">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="8" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img8" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing8" />
+												<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name8">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email8"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone8">
+											</div>
+										</div>
+									</div>
+
+									<div class="product" id="9" data-product-id="1" data-category="women|women-jeans|women-skirt" data-brand="brand1">
+										<div class="entry-media">
+											<img id="img9" data-src="" alt="" class="lazyLoad thumb s" />
+											<div class="rate-bar">
+												<input type="range" value="4.5" step="0.5" id="backing9" />
+												<div class="rateit" data-rateit-backingfld="#backing5" data-rateit-starwidth="12" data-rateit-starheight="12" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5"></div>
+											</div>
+										</div>
+										<div class="entry-main">
+											<h5 class="entry-title" id="name9">
+											</h5>
+											<div class="entry-price">
+												<strong class="accent-color price" id="email9"></strong>
+											</div>
+											<div class="entry-links clearfix" id="phone9">
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
 						</section>
-					</div>
-					
+
+					</section>
 				</div>
+
 			</div>
-		</main>
+		</div>
+	</main>
 		<!-- // SITE MAIN CONTENT -->
 		
 		
@@ -657,5 +410,68 @@
 	<script src="js/jquery.isotope.min.js"></script>
 	<script src="js/products.js"></script>
 	<!-- // Particular Page Javascripts -->
+<script>
+    function initData(){
+        $.ajax({
+            type:"post",
+            dataType:"json",
+            url:"/horse/echo",
+            success:function(data){
+                console.log(data);
+                if(data!=null){
+
+                    var parentDiv = $("<div class=\"grid m-t-b add-cart products-layout\" data-product=\".product\" data-thumbnail=\".entry-media .thumb\" data-title=\".entry-title > a\" data-url=\".entry-title > a\" data-price=\".entry-price > .price\"></div>");
+                    $("#showHorseMans").append(parentDiv);
+                    for(var i=0;i<data.datas.echo.length;i++){
+                        var divHorseMans = $("<div class=\"product\" data-product-id='"+i+"' data-category=\"women|women-jeans|women-skirt\" data-brand=\"brand1\"></div>");
+
+                        var  divImg = $("<div class='entry-media'></div>")
+							.append($("<img data-src='"+data.datas.echo[i].img+"' alt=\"\" class=\"lazyLoad thumb\"/>"))
+							.append($("<div class=\"rate-bar\"></div>")
+								.append($("<input type=\"range\" value=\"4.5\" step=\"0.5\" id='backing"+i+1+"' />"))
+								.append($("<div class=\"rateit\" data-rateit-backingfld='#backing"+i+1+"' data-rateit-starwidth=\"12\" data-rateit-starheight=\"12\" data-rateit-resetable=\"false\"  data-rateit-ispreset=\"true\" data-rateit-min=\"0\" data-rateit-max=\"5\"></div>"))
+							);
+                        var divInfo = $("<div class=\"entry-main\"></div>")
+									.append($("<h5 class=\"entry-title\"></h5>").append(data.datas.echo[i].username))
+								    .append($("<div class=\"entry-price\"></div>").append($("<strong class=\"accent-color price\"></strong>").append(data.datas.echo[i].email)))
+								    .append($("<div class=\"entry-links clearfix\"></div>").append(data.datas.echo[i].tel));
+                        divHorseMans.append(divImg).append(divInfo);
+                        parentDiv.append(divHorseMans);
+                    }
+                }
+            },
+        });
+    }
+
+    function init() {
+        $.ajax({
+            type: "post",
+            dataType: "json",
+            url: "/horse/echo",
+            success: function (data) {
+                console.log(data);
+                if (data != null) {
+                    for(var i=0;i<data.datas.echo.length;i++){
+                        console.log(data.datas.echo[i]);
+                        var img = $("#img"+i);
+                        var name = $("#name"+i);
+                        var email= $("#email"+i);
+                        var phone = $("#phone"+i);
+                        img.prop("src",data.datas.echo[i].img);
+                        name.append(data.datas.echo[i].username);
+                        email.append(data.datas.echo[i].email);
+                        phone.append(data.datas.echo[i].tel);
+
+                    }
+                }
+            }
+        });
+
+    }
+
+
+    init();
+
+</script>
 </body>
 </html>
