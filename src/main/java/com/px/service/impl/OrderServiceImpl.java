@@ -34,5 +34,10 @@ public class OrderServiceImpl implements OrderService {
         return mapper.check(username);
     }
 
+    @Override
+    public Order findById(int orderid) {
+        return mapper.findById(orderid);
+    }
+
 
 }

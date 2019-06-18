@@ -5,6 +5,7 @@ package com.px.controller;/* *
 
 import com.px.entity.Detail;
 import com.px.entity.Horseman;
+import com.px.entity.Order;
 import com.px.service.DetailService;
 import com.px.service.HorsemanService;
 import com.px.service.OrderService;
@@ -38,13 +39,18 @@ public class DetailController {
         System.out.println(detail.toString());
         String horsemanuname = (String) session.getAttribute("horsemanuname");
         Horseman horseman = horsemanService.findByName(horsemanuname);
-        detail.setHorsemanId(horseman.getId());
-        System.out.println("===================================");
-        System.out.println(detail);
-        detailService.receiver(detail);
+        detail.setHorsemanId(horseman.getId());//获取骑手的id
         JsonResult jsonResult=new JsonResult();
-        orderService.update(detail.getOrderId());//接单成功就修改用户的状态码
-        jsonResult.setStatusCode(200);
-       return jsonResult;
+        Order order = orderService.findById(detail.getOrderId());//通过id去查询订单的状态
+        if(order.getStatus()==2){//根据订单状态码去判断是否接单
+            jsonResult.setStatusCode(100);
+            return jsonResult;
+        }else {
+            detailService.receiver(detail);
+            orderService.update(detail.getOrderId());//接单成功就修改用户的状态码
+            jsonResult.setStatusCode(200);
+            return jsonResult;
+        }
+
    }
 }

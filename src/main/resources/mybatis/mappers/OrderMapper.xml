@@ -15,11 +15,14 @@
         select * from tb_order
     </select>
     <update id="update" parameterType="int">
-        UPDATE tb_order SET status=2 WHERE id=#{orderId}
+        UPDATE tb_order SET status=2 WHERE id=#{value}
     </update>
-
     <select id="check" parameterType="String" resultType="order">
         select * from tb_order where userName=#{VALUE}
+    </select>
+
+    <select id="findById" parameterType="int" resultType="order">
+        select status from tb_order where id=#{VALUE}
     </select>
 
 </mapper>

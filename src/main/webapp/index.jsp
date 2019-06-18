@@ -70,6 +70,8 @@ function button(orderId) {
         success:function (code) {
             if(code.statusCode==200){
                 alert("接单成功")
+            }else if(code.statusCode==100){
+                alert("已接单，请勿在此接单")
             }
         }
     })
