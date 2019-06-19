@@ -24,6 +24,6 @@
         select * from tb_horseman where username=#{value}
     </select>
     <select id="echo" resultType="horseman">
-       select * from tb_horseman
+       select * from tb_horseman ORDER BY id desc
     </select>
 </mapper>

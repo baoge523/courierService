@@ -25,6 +25,18 @@
 
         <!--加载mapper文件-->
         <property name="mapperLocations" value="classpath:mybatis/mappers/*.xml"></property>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            params=value1
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+
     </bean>
 
     <!-- mapper扫描器-->

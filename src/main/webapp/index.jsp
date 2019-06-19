@@ -14,7 +14,7 @@
 <script src="js/jquery-3.3.1.js"></script>
 <link rel="icon" href="data:;base64,=">
 <a href="publish.html">发布</a>
-<a href="user.html" id="check">账单</a>
+<a href="/order/checkuser">账单</a>
 <script>
 $("#submit1").click(click1);
 function click1() {

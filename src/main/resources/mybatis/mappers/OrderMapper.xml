@@ -12,14 +12,30 @@
 </insert>
     <!-- 把order中的数据全部展示到页面上 -->
     <select id="findAll" resultType="order">
-        select * from tb_order
+        select * from tb_order order BY id desc
     </select>
     <update id="update" parameterType="int">
         UPDATE tb_order SET status=2 WHERE id=#{value}
     </update>
-    <select id="check" parameterType="String" resultType="order">
-        select * from tb_order where userName=#{VALUE}
+    <select id="check" parameterType="String" resultMap="usercheck">
+        select tb_order.*,tb_horseman.username horseName
+        FROM tb_detail ,tb_horseman ,tb_order
+        WHERE tb_detail.horseman_id=tb_horseman.id and tb_detail.order_id=tb_order.id and tb_order.userName=#{value}
     </select>
+    <resultMap id="usercheck" type="com.px.entity.Order">
+       <id property="id" column="id"></id>
+        <result property="username" column="userName"></result>
+        <result property="userId" column="userId"></result>
+        <result property="companyName" column="companyName"></result>
+        <result property="number" column="number"></result>
+        <result property="money" column="money"></result>
+        <result property="targetAddr" column="targetAddr"></result>
+        <result property="publishTime" column="publishTime"></result>
+        <association property="horseman" javaType="com.px.entity.Horseman">
+            <result property="username" column="horseName"></result>
+        </association>
+
+    </resultMap>
 
     <select id="findById" parameterType="int" resultType="order">
         select status from tb_order where id=#{VALUE}

@@ -9,7 +9,7 @@
         <module name="courierService" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="courierService" target="1.8" />
     </bytecodeTargetLevel>
   </component>

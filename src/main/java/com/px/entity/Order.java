@@ -5,6 +5,7 @@ package com.px.entity;/* *
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
     private int id;
@@ -16,6 +17,7 @@ public class Order {
     private int status;
     private Date publishTime;
     private int money;
+    private Horseman horseman;
 
     @Override
     public String toString() {
@@ -29,9 +31,17 @@ public class Order {
                 ", status=" + status +
                 ", publishTime=" + publishTime +
                 ", money=" + money +
+                ", horseman=" + horseman +
                 '}';
     }
 
+    public Horseman getHorseman() {
+        return horseman;
+    }
+
+    public void setHorseman(Horseman horseman) {
+        this.horseman = horseman;
+    }
 
     public int getId() {
         return id;

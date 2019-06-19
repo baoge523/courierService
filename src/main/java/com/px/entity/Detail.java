@@ -8,6 +8,7 @@ public class Detail {
     private int id;
     private int horsemanId;//骑手id
     private int orderId;//订单id
+    private Horseman horseman;
 
     @Override
     public String toString() {
@@ -15,8 +16,18 @@ public class Detail {
                 "id=" + id +
                 ", horsemanId=" + horsemanId +
                 ", orderId=" + orderId +
+                ", horseman=" + horseman +
                 '}';
     }
+
+    public Horseman getHorseman() {
+        return horseman;
+    }
+
+    public void setHorseman(Horseman horseman) {
+        this.horseman = horseman;
+    }
+
 
     public int getId() {
         return id;

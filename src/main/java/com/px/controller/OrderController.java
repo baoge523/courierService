@@ -81,23 +81,21 @@ public class OrderController {
      * @param session
      * @return
      */
-
     @ResponseBody
     @RequestMapping("checkuser")
-    public JsonResult checkuser(HttpSession session){
+    public PageInfo checkuser(HttpSession session,String page){
+        if(page==null){
+            page="1";
+        }
         JsonResult jsonResult=new JsonResult();
         String  username = (String) session.getAttribute("username");
+        PageHelper.startPage(Integer.parseInt(page) , 3);//分页
         List<Order> list = orderService.check(username);
-        PageHelper.startPage(1 , 4);//分页
         //得到分页的结果对象
         PageInfo<Order> pageInfo=new PageInfo<>(list);
-        //得到分页中的person条目对象
-        List<Order> pageList = pageInfo.getList();
-        System.out.println(pageList);
-        for(Order l:pageList){
-            System.out.println(l.getCompanyName()+l.getNumber()+l.getTargetAddr()+l.getMoney());
-        }
-        return jsonResult;
+       jsonResult.addData("pageInfo",pageInfo);
+        System.out.println(jsonResult.getDatas());
+        return pageInfo;
     }
 //
 //
