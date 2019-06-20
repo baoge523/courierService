@@ -140,4 +140,53 @@ public class UserController {
         jsonResult.setStatusCode(200);
         return jsonResult;
     }
+
+
+    /**
+     * 显示头像
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("findImg")
+    public JsonResult findImg(HttpSession session){
+        JsonResult jsonResult=new JsonResult();
+        String username = (String) session.getAttribute("username");
+        User user = userService.findImg(username);
+        String img = user.getImg();
+        jsonResult.addData("path",img);
+        return jsonResult;
+    }
+
+
+    /**
+     * 注销
+     * @param session
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("logout")
+    public JsonResult logout(HttpSession session){
+        JsonResult jsonResult=new JsonResult();
+        session.invalidate();
+        jsonResult.setStatusCode(200);
+        return jsonResult;
+    }
+
+    /**
+     * 检查session中是否有username，就可以判断是否能够点检进入个人中心
+     * @return
+     */
+    @RequestMapping("checkusername")
+    @ResponseBody
+    public JsonResult checkusername(HttpSession session){
+      JsonResult jsonResult=new JsonResult();
+        String username =(String) session.getAttribute("username");
+        if(username!=null){
+             jsonResult.setStatusCode(200);
+        }else{
+            jsonResult.setStatusCode(100);
+        }
+        return jsonResult;
+    }
 }

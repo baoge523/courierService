@@ -41,4 +41,10 @@ public interface UserMapper {
      */
     void changeByName(User user);
 
+    /**
+     * 通过session域中的username去查找用户的图片
+     * @param username
+     * @return
+     */
+    User findImg(String username);
 }

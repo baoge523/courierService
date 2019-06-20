@@ -41,4 +41,9 @@ public class UserServiceImpl implements UserService {
         mapper.changeByName(user);
     }
 
+    @Override
+    public User findImg(String username) {
+        return mapper.findImg(username);
+    }
+
 }

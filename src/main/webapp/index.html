@@ -34,6 +34,21 @@
 	<link href="css/flexslider.css" rel="stylesheet" />
 	<!-- // PARTICULAR PAGES CSS FILES -->
 	<link rel="stylesheet" href="css/responsive.css">
+	<style>
+		.headerImage{
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+		.headerImage img{
+			height: 60px;
+			width: 60px;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 16px;
+		}
+	</style>
 </head>
 <body class="home">
 			
@@ -70,13 +85,20 @@
 								<a href="components.html">订单中心</a>
 							</li>
 							<li>
-								<a href="admin-user.html">个人中心</a>
+								<a id="llcenter" href="">个人中心</a>
 							</li>
 							<li>
 								<a href="register.html">注册</a>
 							</li>
 							<li>
 								<a href="login.html">登录</a>
+							</li>
+							<li  class="headerImage">
+									<img id="img" src="upload/timg.jpg"/>
+
+							</li>
+							<li>
+								<a href="" id="logout">注销</a>
 							</li>
 						</ul>
 						
@@ -339,7 +361,6 @@
 	});
 </script>
 
-
 <!-- Essential Javascripts -->
 <script src="js/minified.js"></script>
 <!-- // Essential Javascripts -->
@@ -352,11 +373,58 @@
 
   ga('create', 'UA-27646173-3', 'themina.net');
   ga('send', 'pageview');
+	<!--头像-->
+  $(function(){
+      initData();
+  });
+  function initData(){
+      $.ajax({
+          type:"post",
+          dataType: "json",
+          url:"/user/findImg",
+          success:function(data){
+              console.log(data)
+              if(data!=null){
+                  $("#img").attr("src", data.datas.path);
+              }
+          },
+      });
+  }
+  $("#logout").click(logout);
+  function logout() {
+	  $.ajax({
+		  url:"/user/logout",
+		  type:"post",
+		  success:function (data) {
+			  if(data.statusCode==200){
+			      alert("注销成功")
+			  }
+          }
+	  })
+  }
 
 </script>
+			<script>
+                $("#llcenter").click(center);
+                function center() {
+                    $.ajax({
+                        url:"/user/checkusername",
+                        type:"post",
+                        success:function (data) {
+                            if(data.statusCode==200){
+                                document.location.href="http://localhost:8080/admin-user.html";
+                            }else if(data.statusCode==100){
+                                alert("请先登录")
+                            }
+                        }
+                    })
+                }
+
+			</script>
 	<!-- Particular Page Javascripts -->
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- // Particular Page Javascripts -->
+
 </body>
 </html>

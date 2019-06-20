@@ -46,7 +46,7 @@ public class MyInterceptor implements HandlerInterceptor {
             //判断骑手是否登录
             String horsemanuname = (String) httpServletRequest.getSession().getAttribute("horsemanuname");
             if(horsemanuname==null){
-                System.out.println("请登录");
+                System.out.println("请骑手登录");
                 httpServletResponse.setContentType("application/json;charset=utf8");
                 /**
                  *  注意:

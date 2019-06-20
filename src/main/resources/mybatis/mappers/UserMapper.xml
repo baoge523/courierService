@@ -33,4 +33,7 @@
      <update id="changeByName" parameterType="user">
         update tb_user SET username=#{username},password=#{password},email=#{email},tel=#{tel} where id=#{id}
      </update>
+    <select id="findImg" parameterType="String" resultType="user">
+       select img from tb_user where username=#{value}
+    </select>
 </mapper>
